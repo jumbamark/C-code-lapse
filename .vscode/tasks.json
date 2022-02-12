@@ -1,0 +1,43 @@
+// Ctrl + Shift + B (tries to compile, rn it doesn't have anything set up-doesnt know where it is at, what languages are you using or environment, it will sort of guess)
+// hit on the detected task corg to develop this task.json in a vs folder (tells vs code how to compile the code we have)
+// Create bin folder so that we don't have all the executables in the same folder as the source files
+// Change the group to default (rn if we go back to the main.c and hit ctrl+shift+B it still asks us what we want to do, We want it to automatically know that we want to debug, build a c file; change it to a json object with isDefault-true and kind-build)
+// Hitting ctrl + shift + B will now automatically build it for us (creates an executable)
+
+// tells vs code how to compile the code that we have
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: gcc build active file",
+			"command": "/usr/bin/gcc",  // where our gcc compiler is located
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g", // allows us to debug the program
+				"${file}", // actual file(main.c)
+				"-o", // output exe to the location below
+				"${fileDirname}/bin/${fileBasenameNoExtension}",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"isDefault": true,
+				"kind" : "build"
+			},
+			"detail": "compiler: /usr/bin/gcc"
+		}
+	]
+}
+
+// executing commands in the terminal to launch
+// cd bin
+// ./main
+
+// Launching through the editor
+// While in main.c hit (ctrl+f5) to launch the project, select C++(GDB)-linux debugger then select default configuration
+// generates launch.json

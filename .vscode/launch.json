@@ -1,0 +1,51 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/bin/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc build active file"
+        }
+    ]
+}
+
+// The important thing to change is the program argument, the actual executable that should be launched (should be in relation to which file you have opened)
+// change it to whatever we have in the tasks, copy the output folder
+// When we hit F5 the terminal launches and we do get Hello world
+
+// If we dont have the executable(main) already built, when I hit F5 and want to launch it we get an error
+// Tell VS to compile the program before trying to launch, add the prelaunchTask property - should have the exact name that we have in the task(label in task.json) 
+// Will be a task that's gonna launch before launching the actual configuration
+
+// Debugging
+// add int a = 5 add add a breakpoint on the line below and run debug
+// Hitting continue will finish the execution
+
+// Multiply files compiled at the same time
+// In task.json below the actual file add "example.c"
+// Create an example.c, define a function and try to call it in main.c
+// In main.c (outside the int: void function();)
+// In main.c call the function; function()
