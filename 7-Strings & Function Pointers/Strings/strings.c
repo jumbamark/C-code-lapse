@@ -46,9 +46,10 @@ void main () {
  * strcat() - merge two strings
  * strcpy() - copy one string to another string
  * strupr() - convert string to uppercase
+ * strlwr() - returns strings in lowercase
  * strrev() - reverse string
  * strcmp() - compare two strings
-*/
+ */
 
 // Inputs
 /*
