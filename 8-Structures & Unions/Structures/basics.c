@@ -44,6 +44,13 @@ int main () {
     struct student s1 = {21, "Lynne"};
     struct student s2 = {21, "Gathoni"};
 
+    // another way to declare a variable by declaring a variable at the time of defining the structure.
+    struct employee {
+        int id;
+        char name[50];
+        float salary;
+    } e1, e2;
+
     // initiaize using curly braces
     struct student s3;
     s2 = (struct student){23, "Gathoni"};
